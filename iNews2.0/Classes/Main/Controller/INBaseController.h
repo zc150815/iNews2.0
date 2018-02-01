@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "INNewsListModel.h"
+#import "INBaseCell.h"
 
 @interface INBaseController : UIViewController
 

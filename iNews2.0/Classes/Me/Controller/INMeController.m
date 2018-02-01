@@ -8,6 +8,9 @@
 
 #import "INMeController.h"
 #import "INMyFavoritesController.h"
+#import "INMyCommentsController.h"
+#import "INNotificationsController.h"
+#import "INSettingController.h"
 
 @interface INMeController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -32,7 +35,7 @@
     mainView.backgroundColor = [UIColor blueColor];
     mainView.showsVerticalScrollIndicator = NO;
     mainView.showsHorizontalScrollIndicator = NO;
-    mainView.backgroundColor = [UIColor getColor:@"F2F2F2"];
+    mainView.backgroundColor = [UIColor getColor:COLOR_BACKGROUND_BASE];
     mainView.bounces = NO;
     mainView.delegate = self;
     mainView.dataSource = self;
@@ -102,6 +105,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSDictionary *dic = self.dataArr[indexPath.row];
+    
     switch (indexPath.row) {
         case 0:{
             INMyFavoritesController *favoriteVC = [[INMyFavoritesController alloc]init];
@@ -110,15 +114,21 @@
         }
             break;
         case 1:{
-            
+            INMyCommentsController *commentVC = [[INMyCommentsController alloc]init];
+            commentVC.title = [dic objectForKey:@"titleStr"];
+            [self.navigationController pushViewController:commentVC animated:YES];
         }
             break;
         case 2:{
-            
+            INNotificationsController *notifiVC = [[INNotificationsController alloc]init];
+            notifiVC.title = [dic objectForKey:@"titleStr"];
+            [self.navigationController pushViewController:notifiVC animated:YES];
         }
             break;
         case 3:{
-            
+            INSettingController *settingVC = [[INSettingController alloc]init];
+            settingVC.title = [dic objectForKey:@"titleStr"];
+            [self.navigationController pushViewController:settingVC animated:YES];
         }
             break;
         default:

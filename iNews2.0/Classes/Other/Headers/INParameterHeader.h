@@ -22,6 +22,8 @@ static NSString * const COLOR_BASE = @"DD232A"; //主色调
 static NSString * const COLOR_BROWN_DEEP = @"333333";//深灰色
 static NSString * const COLOR_BROWN_LIGHT = @"999999";//浅灰色
 static NSString * const COLOR_BORDER_BASE = @"D2D2D2";//边框颜色
+static NSString * const COLOR_BACKGROUND_BASE = @"f2f2f2";//北背景颜色
+
 static NSString * const SFProTextBold = @"SFProText-Bold";//SFProTextBold字体
 static NSString * const SFProTextLight = @"SFProText-Light";//SFProTextLight字体
 static NSString * const SFProTextRegular = @"SFProText-Regular";//SFProTextRegular字体

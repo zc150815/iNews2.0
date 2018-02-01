@@ -6,12 +6,10 @@
 //  Copyright © 2018年 ronglian. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "INNewsListModel.h"
+#import "INBaseCell.h"
 
 @class INNewsListBaseCell;
 
-static CGFloat const BASE_MARGIN = 8.0; //间距
 static CGFloat const BASE_TIME_FONTSIZE = 12; //来源,时间字号
 
 @protocol INNewsListBaseCellDelegate <NSObject>
@@ -20,7 +18,7 @@ static CGFloat const BASE_TIME_FONTSIZE = 12; //来源,时间字号
 -(void)cellCloseWithCellWithContentCell:(INNewsListBaseCell*)contentCell;
 @end
 
-@interface INNewsListBaseCell : UITableViewCell
+@interface INNewsListBaseCell : INBaseCell
 
 
 @property (nonatomic,weak) id<INNewsListBaseCellDelegate> delegate;

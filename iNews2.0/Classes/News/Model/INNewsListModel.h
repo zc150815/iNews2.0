@@ -21,8 +21,12 @@
 
 @property (nonatomic,assign) BOOL isEditing;
 @property (nonatomic,assign) BOOL canEdit;
+@property (nonatomic,assign) BOOL isRead;
+
 @property (nonatomic,copy) NSString *newsTitle;
 @property (nonatomic,copy) NSString *newsWebsite;
+@property (nonatomic,copy) NSString *comment;
+@property (nonatomic,copy) NSString *detail;
 
 
 //----------------------------------------------------------------------

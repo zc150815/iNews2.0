@@ -1,24 +1,23 @@
 //
-//  INMyFavoritesController.m
+//  INNotificationsController.m
 //  iNews2.0
 //
-//  Created by 123 on 2018/1/31.
+//  Created by 123 on 2018/2/1.
 //  Copyright © 2018年 ronglian. All rights reserved.
 //
 
-#import "INMyFavoritesController.h"
-#import "INNewsListNomalCell.h"
+#import "INNotificationsController.h"
 
-@interface INMyFavoritesController ()<UITableViewDelegate,UITableViewDataSource>
+
+@interface INNotificationsController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *mainView;
 @property (nonatomic,strong) NSMutableArray *dataArr;
 @property (nonatomic,strong) NSMutableArray *dataLayoutArr;
 
-
 @end
 
-@implementation INMyFavoritesController
+@implementation INNotificationsController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +31,7 @@
     
     //主视图
     UITableView *mainView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height)];
+    mainView.bounces = NO;
     mainView.delegate = self;
     mainView.dataSource = self;
     mainView.backgroundColor = [UIColor getColor:COLOR_BACKGROUND_BASE];
@@ -39,7 +39,8 @@
     mainView.showsHorizontalScrollIndicator = NO;
     mainView.separatorStyle = UITableViewCellSeparatorStyleNone;
     mainView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    [mainView registerClass:[INNewsListNomalCell class] forCellReuseIdentifier:@"INNewsListNomalCellID"];
+
+//    [mainView registerClass:[INBaseCell class] forCellReuseIdentifier:@"INNotificationsCellID"];
     self.mainView = mainView;
     [self.view addSubview:mainView];
     
@@ -54,38 +55,54 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    INNewsListNomalCell *cell = [tableView dequeueReusableCellWithIdentifier:@"INNewsListNomalCellID" forIndexPath:indexPath];
-    cell.model = self.dataArr[indexPath.row];
-    cell.hiddenDeleBtn = YES;
+//    INBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"INNotificationsCellID" forIndexPath:indexPath];
+    INBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"INNotificationsCellID"];
+    if (cell == nil) {
+        cell = [[INBaseCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"INNotificationsCellID"];
+    }
+    
+    INNewsListModel *model = self.dataArr[indexPath.row];
+    cell.textLabel.text = model.title;
+    cell.textLabel.numberOfLines = 3;
+    cell.textLabel.font = [UIFont fontWithName:SFProTextSemibold size:16];
+    cell.textLabel.textColor = model.isRead?[UIColor getColor:COLOR_BROWN_LIGHT]:[UIColor getColor:COLOR_BROWN_DEEP];
+    
+    cell.detailTextLabel.text = @"December 27,2017";
+    cell.detailTextLabel.font = [UIFont fontWithName:SFProTextRegular size:12];
+    cell.detailTextLabel.textColor = [UIColor getColor:COLOR_BROWN_LIGHT];
+    
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return [self.dataLayoutArr[indexPath.row] floatValue];
 }
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.dataArr removeObjectAtIndex:indexPath.row];
-        [self.dataLayoutArr removeObjectAtIndex:indexPath.row];
-        
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 
-    }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    INNewsListModel *model = self.dataArr[indexPath.row];
+    model.isRead = YES;
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
--(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    return YES;
-}
-- (BOOL)tableView: (UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath{
-    return YES;
-}
--(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return UITableViewCellEditingStyleDelete;
-}
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return @"Remove";
-}
-
+//-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//    //设置删除按钮
+//    UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Remove"handler:^(UITableViewRowAction *action,NSIndexPath *indexPath) {
+//
+//        [self.dataArr removeObjectAtIndex:indexPath.row];
+//        [tableView reloadData];
+//        //        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationTop];
+//    }];
+//
+//    return @[deleteRowAction];
+//
+//}
+//-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return YES;
+//}
+//
+//-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return UITableViewCellEditingStyleDelete;
+//}
 
 #pragma mark - LodaData
 -(void)loadData{
@@ -517,7 +534,7 @@
     NSArray *arrayM = [INNewsListModel mj_objectArrayWithKeyValuesArray:array];
     [self.dataArr addObjectsFromArray:arrayM];
     [self calculateCellHeightWithModelArray:arrayM];
-    PD_NSLog(@"搜索数据...........................");
+    PD_NSLog(@"通知数据...........................");
     [self.mainView reloadData];
     [self.mainView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     
@@ -530,7 +547,7 @@
         CGFloat titleHeight;
         CGFloat imgViewHeight;
         
-        cellHeight = [NSString stringWithFormat:@"%f",PD_Fit(100)];
+        cellHeight = [NSString stringWithFormat:@"%f",PD_Fit(80)];
         [self.dataLayoutArr addObject:cellHeight];
     }
 }

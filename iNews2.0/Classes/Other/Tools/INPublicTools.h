@@ -13,7 +13,7 @@
 +(instancetype)sharedPublicTools;
 
 //计算文字高度
--(CGFloat)calculateLableHeightWithText:(NSString*)text Font:(UIFont*)font width:(CGFloat)width;
+-(CGFloat)calculateLableHeightWithText:(NSString*)text Font:(UIFont*)font width:(CGFloat)width limitRowCount:(NSInteger)limiteRow;
 //读取缓存
 -(NSString*)loadSystemCache;
 //提示条

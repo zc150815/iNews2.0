@@ -10,6 +10,12 @@
 		5537015CE874A9E0F5E97B4A /* libPods-iNews2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 558629024649F32EF014A8AE /* libPods-iNews2.0.a */; };
 		9D21317D2021E2E900AE45E3 /* INMyFavoritesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D21317C2021E2E900AE45E3 /* INMyFavoritesController.m */; };
 		9D2131802021E3CB00AE45E3 /* INBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D21317F2021E3CB00AE45E3 /* INBaseController.m */; };
+		9D2131832022A12200AE45E3 /* INNotificationsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2131822022A12200AE45E3 /* INNotificationsController.m */; };
+		9D2131862022A4EA00AE45E3 /* INSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2131852022A4EA00AE45E3 /* INSettingController.m */; };
+		9D2131892022A6A500AE45E3 /* INBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2131882022A6A500AE45E3 /* INBaseCell.m */; };
+		9D21318C2022B2BA00AE45E3 /* INMyCommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D21318B2022B2BA00AE45E3 /* INMyCommentsController.m */; };
+		9D21318F2022B7B900AE45E3 /* INCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D21318E2022B7B900AE45E3 /* INCommentsCell.m */; };
+		9D21319720231A9A00AE45E3 /* ZCCoverScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D21319620231A9A00AE45E3 /* ZCCoverScreenView.m */; };
 		9D747D8B20181C4B004EE074 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D747D8A20181C4B004EE074 /* AppDelegate.m */; };
 		9D747D9320181C4B004EE074 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D747D9220181C4B004EE074 /* Assets.xcassets */; };
 		9D747D9920181C4B004EE074 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D747D9820181C4B004EE074 /* main.m */; };
@@ -59,6 +65,18 @@
 		9D21317C2021E2E900AE45E3 /* INMyFavoritesController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INMyFavoritesController.m; sourceTree = "<group>"; };
 		9D21317E2021E3CB00AE45E3 /* INBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INBaseController.h; sourceTree = "<group>"; };
 		9D21317F2021E3CB00AE45E3 /* INBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INBaseController.m; sourceTree = "<group>"; };
+		9D2131812022A12200AE45E3 /* INNotificationsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INNotificationsController.h; sourceTree = "<group>"; };
+		9D2131822022A12200AE45E3 /* INNotificationsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INNotificationsController.m; sourceTree = "<group>"; };
+		9D2131842022A4EA00AE45E3 /* INSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSettingController.h; sourceTree = "<group>"; };
+		9D2131852022A4EA00AE45E3 /* INSettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INSettingController.m; sourceTree = "<group>"; };
+		9D2131872022A6A500AE45E3 /* INBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INBaseCell.h; sourceTree = "<group>"; };
+		9D2131882022A6A500AE45E3 /* INBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INBaseCell.m; sourceTree = "<group>"; };
+		9D21318A2022B2B900AE45E3 /* INMyCommentsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INMyCommentsController.h; sourceTree = "<group>"; };
+		9D21318B2022B2BA00AE45E3 /* INMyCommentsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INMyCommentsController.m; sourceTree = "<group>"; };
+		9D21318D2022B7B900AE45E3 /* INCommentsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INCommentsCell.h; sourceTree = "<group>"; };
+		9D21318E2022B7B900AE45E3 /* INCommentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INCommentsCell.m; sourceTree = "<group>"; };
+		9D21319520231A9A00AE45E3 /* ZCCoverScreenView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCCoverScreenView.h; sourceTree = "<group>"; };
+		9D21319620231A9A00AE45E3 /* ZCCoverScreenView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCCoverScreenView.m; sourceTree = "<group>"; };
 		9D747D8620181C4B004EE074 /* iNews2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iNews2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D747D8920181C4B004EE074 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9D747D8A20181C4B004EE074 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -293,6 +311,12 @@
 				9D747DE920182A07004EE074 /* INMeController.m */,
 				9D21317B2021E2E900AE45E3 /* INMyFavoritesController.h */,
 				9D21317C2021E2E900AE45E3 /* INMyFavoritesController.m */,
+				9D21318A2022B2B900AE45E3 /* INMyCommentsController.h */,
+				9D21318B2022B2BA00AE45E3 /* INMyCommentsController.m */,
+				9D2131812022A12200AE45E3 /* INNotificationsController.h */,
+				9D2131822022A12200AE45E3 /* INNotificationsController.m */,
+				9D2131842022A4EA00AE45E3 /* INSettingController.h */,
+				9D2131852022A4EA00AE45E3 /* INSettingController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -307,6 +331,8 @@
 		9D747DAD201826B6004EE074 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9D21318D2022B7B900AE45E3 /* INCommentsCell.h */,
+				9D21318E2022B7B900AE45E3 /* INCommentsCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,6 +370,10 @@
 		9D747DB1201826B6004EE074 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9D2131872022A6A500AE45E3 /* INBaseCell.h */,
+				9D2131882022A6A500AE45E3 /* INBaseCell.m */,
+				9D21319520231A9A00AE45E3 /* ZCCoverScreenView.h */,
+				9D21319620231A9A00AE45E3 /* ZCCoverScreenView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -600,8 +630,10 @@
 				9D747E212019A71A004EE074 /* INNewsListBaseCell.m in Sources */,
 				9D747E152019A519004EE074 /* INNewsListLiveCell.m in Sources */,
 				9D747DDF201829C3004EE074 /* UITableView+Placeholder.m in Sources */,
+				9D21318F2022B7B900AE45E3 /* INCommentsCell.m in Sources */,
 				9D747E70201D77E9004EE074 /* INNewsChannelController.m in Sources */,
 				9D747E0C2019A4CF004EE074 /* INNewsListSpecialCell.m in Sources */,
+				9D21318C2022B2BA00AE45E3 /* INMyCommentsController.m in Sources */,
 				9D747DDB201829C3004EE074 /* UIImage+ZCExtension.m in Sources */,
 				9D747E79202046FA004EE074 /* UITableView+ZCExtension.m in Sources */,
 				9D747DE3201829C3004EE074 /* UINavigationBar+Awesome.m in Sources */,
@@ -615,17 +647,21 @@
 				9D747DE2201829C3004EE074 /* CLLocation+YCLocation.m in Sources */,
 				9D747E1B2019A64F004EE074 /* INNewsListVideoCell.m in Sources */,
 				9D747D8B20181C4B004EE074 /* AppDelegate.m in Sources */,
+				9D21319720231A9A00AE45E3 /* ZCCoverScreenView.m in Sources */,
 				9D747DE0201829C3004EE074 /* Foundation+Log.m in Sources */,
 				9D747DBC201827B7004EE074 /* INNavigationController.m in Sources */,
 				9D747DFC20187F69004EE074 /* ZCSliderView.m in Sources */,
 				9D747E67201C1FF4004EE074 /* INPublicTools.m in Sources */,
+				9D2131892022A6A500AE45E3 /* INBaseCell.m in Sources */,
 				9D747DDE201829C3004EE074 /* UIButton+ZCExtension.m in Sources */,
 				9D747E6A201C7717004EE074 /* INNewsListNomalCell.m in Sources */,
 				9D747DDC201829C3004EE074 /* UIColor+ZCExtension.m in Sources */,
 				9D747DE4201829C3004EE074 /* UIView+ZCExtension.m in Sources */,
 				9D2131802021E3CB00AE45E3 /* INBaseController.m in Sources */,
 				9D747DDA201829C3004EE074 /* NSString+Hash.m in Sources */,
+				9D2131832022A12200AE45E3 /* INNotificationsController.m in Sources */,
 				9D747DE1201829C3004EE074 /* NSObject+Property.m in Sources */,
+				9D2131862022A4EA00AE45E3 /* INSettingController.m in Sources */,
 				9D747E122019A4F9004EE074 /* INNewsListPicCell.m in Sources */,
 				9D21317D2021E2E900AE45E3 /* INMyFavoritesController.m in Sources */,
 				9D747E09201976F7004EE074 /* INNetworkingTools.m in Sources */,

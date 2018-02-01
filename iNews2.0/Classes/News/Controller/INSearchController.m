@@ -9,6 +9,7 @@
 #import "INSearchController.h"
 #import "INNewsListNomalCell.h"
 
+
 @interface INSearchController ()<UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource,INNewsListBaseCellDelegate>
 
 @property (nonatomic,strong) UITableView *mainView;
@@ -85,17 +86,22 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"INSearchControllerCellID" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.imageView.image = [UIImage scaleFromImage:[UIImage imageNamed:@"ios7-clock-outline"] toSize:CGSizeMake(15, 15)];
+    cell.layer.borderColor = [UIColor getColor:COLOR_BORDER_BASE].CGColor;
+    cell.layer.borderWidth = 0.25;
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.imageView.image = [UIImage imageNamed:@"history"];
+//    cell.imageView.image = [UIImage scaleFromImage:[UIImage imageNamed:@"history"] toSize:CGSizeMake(15, 15)];
+
     INNewsListModel *model = self.historyArr[indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:SFProTextLight size:15];
     cell.textLabel.text = self.segment.selectedSegmentIndex?model.newsWebsite:model.newsTitle;
     
     UIButton *deleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     deleBtn.adjustsImageWhenHighlighted = NO;
-    [deleBtn setImage:[UIImage scaleFromImage:[UIImage imageNamed:@"closs"] toSize:CGSizeMake(15, 15)] forState:UIControlStateNormal];
-    deleBtn.bounds = CGRectMake(0, 0, 15, 15);
+    [deleBtn setImage:[UIImage imageNamed:@"history_delete"] forState:UIControlStateNormal];
+//    [deleBtn setImage:[UIImage scaleFromImage:[UIImage imageNamed:@"history_delete"] toSize:CGSizeMake(15, 15)] forState:UIControlStateNormal];
+    deleBtn.bounds = CGRectMake(0, 0, deleBtn.currentImage.size.width, deleBtn.currentImage.size.height);
     deleBtn.tag = indexPath.row;
     [deleBtn addTarget:self action:@selector(deleteSearchHistory:) forControlEvents:UIControlEventTouchUpInside];
     cell.accessoryView = deleBtn;

@@ -7,8 +7,6 @@
 //
 
 #import "INNewsListController.h"
-#import "INNewsListModel.h"
-#import "INNewsListBaseCell.h"
 #import "INNewsListNomalCell.h"
 #import "INNewsListSpecialCell.h"
 #import "INNewsListPicCell.h"
@@ -18,7 +16,9 @@
 #import "INNewsDetailController.h"
 #import "INSearchController.h"
 
-@interface INNewsListController ()<INNewsListBaseCellDelegate,UISearchBarDelegate,UITableViewNoDataSource>
+#import "ZCCoverScreenView.h"
+
+@interface INNewsListController ()<INNewsListBaseCellDelegate,UISearchBarDelegate,UITableViewNoDataSource,ZCCoverScreenViewDelegate>
 
 @property (nonatomic, strong)NSMutableArray *dataArr;
 @property (nonatomic, strong)NSMutableArray *newsLayoutArr;
@@ -114,7 +114,11 @@
         return cell;
     }
     
-    return nil;
+    //为了防止BUG做的准备,谨防新的数据类型
+    INNewsListNomalCell *cell = [tableView dequeueReusableCellWithIdentifier:@"INNewsListNomalCellID" forIndexPath:indexPath];
+    cell.delegate = self;
+    cell.model = model;
+    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -154,7 +158,7 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGFloat difference = scrollView.contentOffset.y - self.beginContentOffsetY;
 //    PD_NSLog(@"contentOffsetY==%f",scrollView.contentOffset.y);
-    PD_NSLog(@"difference==%f",difference);
+//    PD_NSLog(@"difference==%f",difference);
 
     if (difference >= PD_NavHeight*2) {
         [[NSNotificationCenter defaultCenter]postNotificationName:@"HIDESLIDERVIEWNOTIFICATION" object:nil];
@@ -180,8 +184,18 @@
 #pragma mark - INNewsListBaseCellDelegate
 -(void)cellCloseWithCellWithContentCell:(INNewsListBaseCell *)contentCell{
     
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:contentCell];
-    [[INPublicTools sharedPublicTools]showMessage:[NSString stringWithFormat:@"第%ld行删除",(long)indexPath.row] duration:3];
+//    NSIndexPath *indexPath = [self.tableView indexPathForCell:contentCell];
+//    [[INPublicTools sharedPublicTools]showMessage:[NSString stringWithFormat:@"第%ld行删除",(long)indexPath.row] duration:3];
+    
+    [ZCCoverScreenView removeNotInterstedNewsWithSubview:contentCell];
+    [ZCCoverScreenView sharedCoverScreenView].delegate = self;
+    [ZCCoverScreenView show];
+}
+
+#pragma mark - ZCCoverScreenViewDelegate
+-(void)makeSureToRemoveNotInterestedNews{
+    
+    [[INPublicTools sharedPublicTools]showMessage:@"不感兴趣" duration:3];
 }
 
 #pragma mark - lodaData
@@ -639,17 +653,17 @@
         NSInteger listType = model.contenttype.integerValue;
         
         if (listType == INNewsListTypeSpecial) {
-            titleHeight = [[INPublicTools sharedPublicTools]calculateLableHeightWithText:model.title Font:[UIFont fontWithName:SFProTextBold size:PD_Fit(SPECIAL_TITLE_FONTSIZE)] width:(self.view.width-2*PD_Fit(BASE_MARGIN))];
+            titleHeight = [[INPublicTools sharedPublicTools]calculateLableHeightWithText:model.title Font:[UIFont fontWithName:SFProTextBold size:PD_Fit(SPECIAL_TITLE_FONTSIZE)] width:(self.view.width-2*PD_Fit(BASE_MARGIN)) limitRowCount:3];
             imgViewHeight = self.view.width *3.0/4.0;
             cellHeight = [NSString stringWithFormat:@"%f",imgViewHeight+PD_Fit(BASE_MARGIN)+titleHeight+PD_Fit(BASE_MARGIN)+PD_Fit(17)+PD_Fit(10)];
         }else if (listType == INNewsListTypeNomal){
             cellHeight = [NSString stringWithFormat:@"%f",PD_Fit(100)];
         }else if (listType == INNewsListTypePic){
-            titleHeight = [[INPublicTools sharedPublicTools]calculateLableHeightWithText:model.title Font:[UIFont fontWithName:SFProTextSemibold size:PD_Fit(PIC_TITLE_FONTSIZE)] width:(self.view.width-2*PD_Fit(BASE_MARGIN))];
+            titleHeight = [[INPublicTools sharedPublicTools]calculateLableHeightWithText:model.title Font:[UIFont fontWithName:SFProTextSemibold size:PD_Fit(PIC_TITLE_FONTSIZE)] width:(self.view.width-2*PD_Fit(BASE_MARGIN)) limitRowCount:3];
             imgViewHeight = (self.view.width - 2*PD_Fit(BASE_MARGIN))/2;
             cellHeight = [NSString stringWithFormat:@"%f",PD_Fit(BASE_MARGIN)+imgViewHeight+PD_Fit(BASE_MARGIN)+titleHeight+PD_Fit(BASE_MARGIN)+PD_Fit(17)+PD_Fit(10)];
         }else if (listType == INNewsListTypeLive || listType == INNewsListTypeReplay||listType == INNewsListTypeVideo){
-            titleHeight = [[INPublicTools sharedPublicTools]calculateLableHeightWithText:model.title Font:[UIFont fontWithName:SFProTextBold size:PD_Fit(LIVE_TITLE_FONTSIZE)] width:(self.view.width-2*PD_Fit(BASE_MARGIN))];
+            titleHeight = [[INPublicTools sharedPublicTools]calculateLableHeightWithText:model.title Font:[UIFont fontWithName:SFProTextBold size:PD_Fit(LIVE_TITLE_FONTSIZE)] width:(self.view.width-2*PD_Fit(BASE_MARGIN)) limitRowCount:3];
             imgViewHeight = self.view.width*9/16;
             cellHeight = [NSString stringWithFormat:@"%f",PD_Fit(BASE_MARGIN)+imgViewHeight+PD_Fit(BASE_MARGIN)+titleHeight+PD_Fit(BASE_MARGIN)+PD_Fit(17)+PD_Fit(10)];
         }

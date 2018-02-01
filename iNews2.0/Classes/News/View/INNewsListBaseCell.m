@@ -16,10 +16,7 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
- 
-        self.backgroundColor = [UIColor whiteColor];
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+         
         UIButton *deleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [deleBtn setImage:[UIImage imageNamed:@"cell_close"] forState:UIControlStateNormal];
         deleBtn.adjustsImageWhenHighlighted = NO;
@@ -31,14 +28,6 @@
             make.width.height.mas_equalTo(PD_Fit(35));
         }];
         
-        
-        UILabel *line = [[UILabel alloc]init];
-        line.backgroundColor = [UIColor getColor:COLOR_BORDER_BASE];
-        [self.contentView addSubview:line];
-        [line mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.trailing.bottom.equalTo(self.contentView);
-            make.height.mas_equalTo(0.5);
-        }];
     }
     return self;
 }

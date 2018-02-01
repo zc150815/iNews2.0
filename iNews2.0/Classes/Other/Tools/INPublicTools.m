@@ -28,13 +28,15 @@ static INPublicTools* _instanceType;
 }
 
 
--(CGFloat)calculateLableHeightWithText:(NSString*)text Font:(UIFont*)font width:(CGFloat)width{
+-(CGFloat)calculateLableHeightWithText:(NSString*)text Font:(UIFont*)font width:(CGFloat)width limitRowCount:(NSInteger)limiteRow{
     
     CGSize titleSize = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
     CGFloat lineH = font.lineHeight;
     NSInteger rowCount = titleSize.height/lineH;
-    
-    return (rowCount>=3)?3*lineH:lineH*rowCount;
+    if (limiteRow == 0) {
+        return lineH*rowCount;
+    }
+    return (rowCount>=limiteRow)?limiteRow*lineH:lineH*rowCount;
 }
 
 #pragma mark
