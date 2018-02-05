@@ -38,9 +38,9 @@
         CGFloat currentVersion = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] floatValue];
         NSInteger currentBundle = [[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"] integerValue];
         
-        if (version != currentVersion || (version == currentVersion && build != currentBundle)) {
+        if (version > currentVersion || (version == currentVersion && build > currentBundle)) {
             
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"发现新版本%.1f.%ld",version,build] message:changelog preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"发现新版本%.1f.%zd",version,build] message:changelog preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"升级" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dic objectForKey:@"update_url"]]];
             }]];

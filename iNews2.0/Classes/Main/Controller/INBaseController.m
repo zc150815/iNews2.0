@@ -27,7 +27,7 @@
     
     //返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setImage:[UIImage scaleFromImage:[UIImage imageNamed:@"back-gray"] toSize:CGSizeMake(PD_Fit(bar.height/4), PD_Fit(bar.height/2))] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"backbutton"] forState:UIControlStateNormal];
     backBtn.adjustsImageWhenHighlighted = NO;
     backBtn.frame = CGRectMake(0, 0, bar.height, bar.height);
     [backBtn addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
@@ -42,6 +42,11 @@
     titleLab.textAlignment = NSTextAlignmentCenter;
     titleLab.frame = CGRectMake(bar.width/2-bar.width/4, 0, bar.width/2, bar.height);
     [bar addSubview:titleLab];
+    
+    UILabel *line = [[UILabel alloc]initWithFrame:CGRectMake(0, bar.height-0.5, bar.width, 0.5)];
+    line.backgroundColor = [UIColor getColor:COLOR_BORDER_BASE];
+    [bar addSubview:line];
+    
     
 }
 -(void)popCurrentViewController{

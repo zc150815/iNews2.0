@@ -62,7 +62,12 @@
     
     return [self.dataLayoutArr[indexPath.row] floatValue];
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.dataArr removeAllObjects];
+    [self.dataLayoutArr removeAllObjects];
+    [tableView tableViewLoadNoDataWithImage:[UIImage imageNamed:@"comments_no-content"] Title:@"No comment"];
 
+}
 #pragma mark - LodaData
 -(void)loadData{
     
@@ -252,7 +257,7 @@
     for (INNewsListModel *model in modelArr) {
         NSString *cellHeight;
         CGFloat titleHeight;
-        CGFloat imgViewHeight;
+//        CGFloat imgViewHeight;
         
         titleHeight = [[INPublicTools sharedPublicTools]calculateLableHeightWithText:model.comment Font:[UIFont fontWithName:SFProTextBold size:COMMENT_COMMENT_FONTSIZE] width:(self.view.width-3*PD_Fit(BASE_MARGIN)-PD_Fit(32)) limitRowCount:0];
         

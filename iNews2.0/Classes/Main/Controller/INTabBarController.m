@@ -25,6 +25,7 @@
     [self setupChildController];
     
     self.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {

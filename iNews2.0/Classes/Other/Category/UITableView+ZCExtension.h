@@ -20,8 +20,7 @@ static NSString *const UITABLEVIEW_RELOAD_NOTIFICATION = @"UITABLEVIEW_RELOAD_NO
 
 @property (nonatomic, weak) id<UITableViewNoDataSource> errorDataSource;
 
--(void)tableViewLoadNoData;
-
+-(void)tableViewLoadNoDataWithImage:(UIImage*)image Title:(NSString*)title;
 @end
 
 

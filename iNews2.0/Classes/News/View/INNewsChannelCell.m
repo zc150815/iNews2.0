@@ -1,3 +1,4 @@
+
 //
 //  INNewsChannelCell.m
 //  iNews2.0
@@ -42,10 +43,10 @@
         
         
         UIButton *deleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        deleBtn.center = CGPointMake(CGRectGetMaxX(channelLab.frame), CGRectGetMinY(channelLab.frame));
-        deleBtn.bounds = CGRectMake(0, 0, PD_Fit(30), PD_Fit(30));
-        UIImage *image = [UIImage scaleFromImage:[UIImage imageNamed:@"closs"] toSize:CGSizeMake(PD_Fit(15), PD_Fit(15))];
+        UIImage *image = [UIImage imageNamed:@"edit_remove"];
         [deleBtn setImage:image forState:UIControlStateNormal];
+        deleBtn.center = CGPointMake(CGRectGetMaxX(channelLab.frame), CGRectGetMinY(channelLab.frame));
+        deleBtn.bounds = CGRectMake(0, 0, deleBtn.currentImage.size.width, deleBtn.currentImage.size.height);
         [deleBtn addTarget:self action:@selector(removeButtonClick) forControlEvents:UIControlEventTouchUpInside];
         self.deleBtn = deleBtn;
         [self addSubview:deleBtn];
@@ -69,6 +70,8 @@
     _channelLab.textColor = model.canEdit?[UIColor getColor:COLOR_BROWN_DEEP]:[UIColor getColor:COLOR_BROWN_LIGHT];
     
     _deleBtn.hidden = !(model.canEdit&&model.isEditing);
+    
+
     
 }
 @end

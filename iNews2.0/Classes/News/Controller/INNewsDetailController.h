@@ -6,8 +6,8 @@
 //  Copyright © 2018年 ronglian. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "INBaseController.h"
 
-@interface INNewsDetailController : UIViewController
+@interface INNewsDetailController : INBaseController
 
 @end

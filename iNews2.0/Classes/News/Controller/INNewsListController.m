@@ -123,10 +123,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    [self.navigationController pushViewController:[[INNewsDetailController alloc]init] animated:YES];
-    //test
-    [self.dataArr removeAllObjects];
-    [self.tableView tableViewLoadNoData];
+    INNewsDetailController *detailVC = [[INNewsDetailController alloc]init];
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    //test模拟无网络状态
+//    [self.dataArr removeAllObjects];
+//    [self.tableView tableViewLoadNoDataWithImage:[UIImage imageNamed:@"homepage_network error"] Title:@""];
 
 
 }

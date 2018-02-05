@@ -16,6 +16,12 @@
 		9D21318C2022B2BA00AE45E3 /* INMyCommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D21318B2022B2BA00AE45E3 /* INMyCommentsController.m */; };
 		9D21318F2022B7B900AE45E3 /* INCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D21318E2022B7B900AE45E3 /* INCommentsCell.m */; };
 		9D21319720231A9A00AE45E3 /* ZCCoverScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D21319620231A9A00AE45E3 /* ZCCoverScreenView.m */; };
+		9D21319A2023FCE100AE45E3 /* INDetailToolsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2131992023FCE100AE45E3 /* INDetailToolsView.m */; };
+		9D21319F2024297F00AE45E3 /* INDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D21319E2024297F00AE45E3 /* INDetailHeaderView.m */; };
+		9D2131A22024298B00AE45E3 /* INDetailFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2131A12024298B00AE45E3 /* INDetailFooterView.m */; };
+		9D2131A920244FFA00AE45E3 /* LaunchScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2131A820244FFA00AE45E3 /* LaunchScreenController.m */; };
+		9D2131B82024B9A800AE45E3 /* INNewsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2131B72024B9A800AE45E3 /* INNewsDetailCell.m */; };
+		9D2131BB2024C2C000AE45E3 /* PDNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2131B92024C2C000AE45E3 /* PDNewsModel.m */; };
 		9D747D8B20181C4B004EE074 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D747D8A20181C4B004EE074 /* AppDelegate.m */; };
 		9D747D9320181C4B004EE074 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D747D9220181C4B004EE074 /* Assets.xcassets */; };
 		9D747D9920181C4B004EE074 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D747D9820181C4B004EE074 /* main.m */; };
@@ -77,6 +83,18 @@
 		9D21318E2022B7B900AE45E3 /* INCommentsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INCommentsCell.m; sourceTree = "<group>"; };
 		9D21319520231A9A00AE45E3 /* ZCCoverScreenView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCCoverScreenView.h; sourceTree = "<group>"; };
 		9D21319620231A9A00AE45E3 /* ZCCoverScreenView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCCoverScreenView.m; sourceTree = "<group>"; };
+		9D2131982023FCE100AE45E3 /* INDetailToolsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INDetailToolsView.h; sourceTree = "<group>"; };
+		9D2131992023FCE100AE45E3 /* INDetailToolsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INDetailToolsView.m; sourceTree = "<group>"; };
+		9D21319D2024297F00AE45E3 /* INDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INDetailHeaderView.h; sourceTree = "<group>"; };
+		9D21319E2024297F00AE45E3 /* INDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INDetailHeaderView.m; sourceTree = "<group>"; };
+		9D2131A02024298B00AE45E3 /* INDetailFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INDetailFooterView.h; sourceTree = "<group>"; };
+		9D2131A12024298B00AE45E3 /* INDetailFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INDetailFooterView.m; sourceTree = "<group>"; };
+		9D2131A720244FFA00AE45E3 /* LaunchScreenController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchScreenController.h; sourceTree = "<group>"; };
+		9D2131A820244FFA00AE45E3 /* LaunchScreenController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenController.m; sourceTree = "<group>"; };
+		9D2131B62024B9A700AE45E3 /* INNewsDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INNewsDetailCell.h; sourceTree = "<group>"; };
+		9D2131B72024B9A800AE45E3 /* INNewsDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INNewsDetailCell.m; sourceTree = "<group>"; };
+		9D2131B92024C2C000AE45E3 /* PDNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDNewsModel.m; sourceTree = "<group>"; };
+		9D2131BA2024C2C000AE45E3 /* PDNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDNewsModel.h; sourceTree = "<group>"; };
 		9D747D8620181C4B004EE074 /* iNews2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iNews2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D747D8920181C4B004EE074 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9D747D8A20181C4B004EE074 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -192,6 +210,51 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9D21319C2024295100AE45E3 /* NewsList */ = {
+			isa = PBXGroup;
+			children = (
+				9D747E1F2019A71A004EE074 /* INNewsListBaseCell.h */,
+				9D747E202019A71A004EE074 /* INNewsListBaseCell.m */,
+				9D747E68201C7717004EE074 /* INNewsListNomalCell.h */,
+				9D747E69201C7717004EE074 /* INNewsListNomalCell.m */,
+				9D747E0A2019A4CF004EE074 /* INNewsListSpecialCell.h */,
+				9D747E0B2019A4CF004EE074 /* INNewsListSpecialCell.m */,
+				9D747E102019A4F9004EE074 /* INNewsListPicCell.h */,
+				9D747E112019A4F9004EE074 /* INNewsListPicCell.m */,
+				9D747E132019A519004EE074 /* INNewsListLiveCell.h */,
+				9D747E142019A519004EE074 /* INNewsListLiveCell.m */,
+				9D747E162019A52F004EE074 /* INNewsListReplayCell.h */,
+				9D747E172019A52F004EE074 /* INNewsListReplayCell.m */,
+				9D747E192019A64F004EE074 /* INNewsListVideoCell.h */,
+				9D747E1A2019A64F004EE074 /* INNewsListVideoCell.m */,
+			);
+			path = NewsList;
+			sourceTree = "<group>";
+		};
+		9D2131A32024299000AE45E3 /* NewsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9D2131B62024B9A700AE45E3 /* INNewsDetailCell.h */,
+				9D2131B72024B9A800AE45E3 /* INNewsDetailCell.m */,
+				9D2131982023FCE100AE45E3 /* INDetailToolsView.h */,
+				9D2131992023FCE100AE45E3 /* INDetailToolsView.m */,
+				9D21319D2024297F00AE45E3 /* INDetailHeaderView.h */,
+				9D21319E2024297F00AE45E3 /* INDetailHeaderView.m */,
+				9D2131A02024298B00AE45E3 /* INDetailFooterView.h */,
+				9D2131A12024298B00AE45E3 /* INDetailFooterView.m */,
+			);
+			path = NewsDetail;
+			sourceTree = "<group>";
+		};
+		9D2131A4202429AD00AE45E3 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				9D2131842022A4EA00AE45E3 /* INSettingController.h */,
+				9D2131852022A4EA00AE45E3 /* INSettingController.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		9D747D7D20181C4B004EE074 = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +328,8 @@
 			children = (
 				9D747E1C2019A6DA004EE074 /* INNewsListModel.h */,
 				9D747E1D2019A6DA004EE074 /* INNewsListModel.m */,
+				9D2131BA2024C2C000AE45E3 /* PDNewsModel.h */,
+				9D2131B92024C2C000AE45E3 /* PDNewsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,20 +337,8 @@
 		9D747DA9201826B6004EE074 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9D747E1F2019A71A004EE074 /* INNewsListBaseCell.h */,
-				9D747E202019A71A004EE074 /* INNewsListBaseCell.m */,
-				9D747E68201C7717004EE074 /* INNewsListNomalCell.h */,
-				9D747E69201C7717004EE074 /* INNewsListNomalCell.m */,
-				9D747E0A2019A4CF004EE074 /* INNewsListSpecialCell.h */,
-				9D747E0B2019A4CF004EE074 /* INNewsListSpecialCell.m */,
-				9D747E102019A4F9004EE074 /* INNewsListPicCell.h */,
-				9D747E112019A4F9004EE074 /* INNewsListPicCell.m */,
-				9D747E132019A519004EE074 /* INNewsListLiveCell.h */,
-				9D747E142019A519004EE074 /* INNewsListLiveCell.m */,
-				9D747E162019A52F004EE074 /* INNewsListReplayCell.h */,
-				9D747E172019A52F004EE074 /* INNewsListReplayCell.m */,
-				9D747E192019A64F004EE074 /* INNewsListVideoCell.h */,
-				9D747E1A2019A64F004EE074 /* INNewsListVideoCell.m */,
+				9D21319C2024295100AE45E3 /* NewsList */,
+				9D2131A32024299000AE45E3 /* NewsDetail */,
 				9D747E71201DD945004EE074 /* INNewsChannelCell.h */,
 				9D747E72201DD945004EE074 /* INNewsChannelCell.m */,
 				9D747DFA20187F69004EE074 /* ZCSliderView.h */,
@@ -307,6 +360,7 @@
 		9D747DAB201826B6004EE074 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9D2131A4202429AD00AE45E3 /* Setting */,
 				9D747DE820182A07004EE074 /* INMeController.h */,
 				9D747DE920182A07004EE074 /* INMeController.m */,
 				9D21317B2021E2E900AE45E3 /* INMyFavoritesController.h */,
@@ -315,8 +369,6 @@
 				9D21318B2022B2BA00AE45E3 /* INMyCommentsController.m */,
 				9D2131812022A12200AE45E3 /* INNotificationsController.h */,
 				9D2131822022A12200AE45E3 /* INNotificationsController.m */,
-				9D2131842022A4EA00AE45E3 /* INSettingController.h */,
-				9D2131852022A4EA00AE45E3 /* INSettingController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -412,11 +464,13 @@
 		9D747DB6201826DB004EE074 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				9D747DBD201827C5004EE074 /* PrefixHeader.pch */,
 				9D747D8920181C4B004EE074 /* AppDelegate.h */,
 				9D747D8A20181C4B004EE074 /* AppDelegate.m */,
 				9D747DF4201870A5004EE074 /* AppDelegate+INAppSetting.h */,
 				9D747DF5201870A5004EE074 /* AppDelegate+INAppSetting.m */,
-				9D747DBD201827C5004EE074 /* PrefixHeader.pch */,
+				9D2131A720244FFA00AE45E3 /* LaunchScreenController.h */,
+				9D2131A820244FFA00AE45E3 /* LaunchScreenController.m */,
 				9D747DBE2018284F004EE074 /* Headers */,
 				9D747DC4201829C3004EE074 /* Category */,
 				9D747E06201976DD004EE074 /* Tools */,
@@ -440,27 +494,27 @@
 		9D747DC4201829C3004EE074 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				9D747DD3201829C3004EE074 /* Foundation+Log.m */,
+				9D747DD2201829C3004EE074 /* NSString+Hash.h */,
 				9D747DC5201829C3004EE074 /* NSString+Hash.m */,
 				9D747DC6201829C3004EE074 /* UITableView+Placeholder.h */,
+				9D747DD1201829C3004EE074 /* UITableView+Placeholder.m */,
+				9D747DD0201829C3004EE074 /* UIImage+ZCExtension.h */,
 				9D747DC7201829C3004EE074 /* UIImage+ZCExtension.m */,
+				9D747DCF201829C3004EE074 /* UIColor+ZCExtension.h */,
 				9D747DC8201829C3004EE074 /* UIColor+ZCExtension.m */,
 				9D747DC9201829C3004EE074 /* NSObject+Property.h */,
+				9D747DD5201829C3004EE074 /* NSObject+Property.m */,
+				9D747DD4201829C3004EE074 /* NSAttributedString+ZCExtension.h */,
 				9D747DCA201829C3004EE074 /* NSAttributedString+ZCExtension.m */,
 				9D747DCB201829C3004EE074 /* UIView+ZCExtension.h */,
-				9D747DCC201829C3004EE074 /* UINavigationBar+Awesome.h */,
-				9D747DCD201829C3004EE074 /* CLLocation+YCLocation.h */,
-				9D747DCE201829C3004EE074 /* UIButton+ZCExtension.m */,
-				9D747DCF201829C3004EE074 /* UIColor+ZCExtension.h */,
-				9D747DD0201829C3004EE074 /* UIImage+ZCExtension.h */,
-				9D747DD1201829C3004EE074 /* UITableView+Placeholder.m */,
-				9D747DD2201829C3004EE074 /* NSString+Hash.h */,
-				9D747DD3201829C3004EE074 /* Foundation+Log.m */,
-				9D747DD4201829C3004EE074 /* NSAttributedString+ZCExtension.h */,
-				9D747DD5201829C3004EE074 /* NSObject+Property.m */,
-				9D747DD6201829C3004EE074 /* UIButton+ZCExtension.h */,
-				9D747DD7201829C3004EE074 /* CLLocation+YCLocation.m */,
-				9D747DD8201829C3004EE074 /* UINavigationBar+Awesome.m */,
 				9D747DD9201829C3004EE074 /* UIView+ZCExtension.m */,
+				9D747DCC201829C3004EE074 /* UINavigationBar+Awesome.h */,
+				9D747DD8201829C3004EE074 /* UINavigationBar+Awesome.m */,
+				9D747DCD201829C3004EE074 /* CLLocation+YCLocation.h */,
+				9D747DD7201829C3004EE074 /* CLLocation+YCLocation.m */,
+				9D747DCE201829C3004EE074 /* UIButton+ZCExtension.m */,
+				9D747DD6201829C3004EE074 /* UIButton+ZCExtension.h */,
 				9D747E77202046FA004EE074 /* UITableView+ZCExtension.h */,
 				9D747E78202046FA004EE074 /* UITableView+ZCExtension.m */,
 			);
@@ -624,6 +678,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D21319F2024297F00AE45E3 /* INDetailHeaderView.m in Sources */,
+				9D2131A920244FFA00AE45E3 /* LaunchScreenController.m in Sources */,
 				9D747E76201E0D0C004EE074 /* INSearchController.m in Sources */,
 				9D747DDD201829C3004EE074 /* NSAttributedString+ZCExtension.m in Sources */,
 				9D747DEA20182A07004EE074 /* INMeController.m in Sources */,
@@ -632,14 +688,18 @@
 				9D747DDF201829C3004EE074 /* UITableView+Placeholder.m in Sources */,
 				9D21318F2022B7B900AE45E3 /* INCommentsCell.m in Sources */,
 				9D747E70201D77E9004EE074 /* INNewsChannelController.m in Sources */,
+				9D2131A22024298B00AE45E3 /* INDetailFooterView.m in Sources */,
 				9D747E0C2019A4CF004EE074 /* INNewsListSpecialCell.m in Sources */,
 				9D21318C2022B2BA00AE45E3 /* INMyCommentsController.m in Sources */,
 				9D747DDB201829C3004EE074 /* UIImage+ZCExtension.m in Sources */,
 				9D747E79202046FA004EE074 /* UITableView+ZCExtension.m in Sources */,
+				9D2131BB2024C2C000AE45E3 /* PDNewsModel.m in Sources */,
 				9D747DE3201829C3004EE074 /* UINavigationBar+Awesome.m in Sources */,
 				9D747DF920187D94004EE074 /* INNewsListController.m in Sources */,
 				9D747D9920181C4B004EE074 /* main.m in Sources */,
 				9D747DF6201870A5004EE074 /* AppDelegate+INAppSetting.m in Sources */,
+				9D21319A2023FCE100AE45E3 /* INDetailToolsView.m in Sources */,
+				9D2131B82024B9A800AE45E3 /* INNewsDetailCell.m in Sources */,
 				9D747E182019A52F004EE074 /* INNewsListReplayCell.m in Sources */,
 				9D747E1E2019A6DA004EE074 /* INNewsListModel.m in Sources */,
 				9D747DED201836A8004EE074 /* INNewsDetailController.m in Sources */,
@@ -782,7 +842,6 @@
 			baseConfigurationReference = A637C28935D38BA55749CD51 /* Pods-iNews2.0.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = YFJ578HBZ4;
@@ -803,7 +862,6 @@
 			baseConfigurationReference = CF506DA793EDA29CA890702B /* Pods-iNews2.0.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = YFJ578HBZ4;

@@ -27,4 +27,7 @@ typedef void (^callBack)(id response,NSError* error);
 //fir检查更新
 -(void)checkFIRVersionWithCallBack:(callBack)callBack;
 
+
+//获取新闻详情
+-(void)getNewsDetailDataWithID:(NSString*)ID callBack:(callBack)callBack;
 @end

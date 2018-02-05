@@ -51,7 +51,7 @@
     
     
     //主视图
-    UITableView *mainView = [[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.navBar.frame), self.view.width, self.view.height-CGRectGetMaxY(self.navBar.frame))];
+    UITableView *mainView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height)];
     mainView.bounces = NO;
     mainView.delegate = self;
     mainView.dataSource = self;
@@ -64,6 +64,10 @@
     [mainView registerClass:[INNewsListNomalCell class] forCellReuseIdentifier:@"INNewsListNomalCellID"];
     self.mainView = mainView;
     [self.view addSubview:mainView];
+    
+    [self.view bringSubviewToFront:self.navBar];
+    mainView.contentInset = UIEdgeInsetsMake(self.navBar.height, 0, 0, 0);
+
 
 }
 
@@ -176,7 +180,7 @@
     
     NSInteger index = sender.tag;
     
-    [[INPublicTools sharedPublicTools]showMessage:[NSString stringWithFormat:@"删除第%ld个记录",index] duration:3];
+    [[INPublicTools sharedPublicTools]showMessage:[NSString stringWithFormat:@"删除第%zd个记录",index] duration:3];
 
     [self.historyArr removeObjectAtIndex:index];
     
@@ -668,8 +672,8 @@
     
     for (INNewsListModel *model in modelArr) {
         NSString *cellHeight;
-        CGFloat titleHeight;
-        CGFloat imgViewHeight;
+//        CGFloat titleHeight;
+//        CGFloat imgViewHeight;
         
         cellHeight = [NSString stringWithFormat:@"%f",PD_Fit(100)];
         [self.searchResultLayoutArr addObject:cellHeight];

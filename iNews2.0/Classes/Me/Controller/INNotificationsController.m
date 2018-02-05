@@ -79,10 +79,16 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    INNewsListModel *model = self.dataArr[indexPath.row];
-    model.isRead = YES;
-    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    INNewsListModel *model = self.dataArr[indexPath.row];
+//    model.isRead = YES;
+//    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
+    [self.dataArr removeAllObjects];
+    [self.dataLayoutArr removeAllObjects];
+    [tableView tableViewLoadNoDataWithImage:[UIImage imageNamed:@"icon_notifications"] Title:@"No notifications"];
+
 }
+
 //-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
 //
 //    //设置删除按钮
@@ -544,8 +550,8 @@
     
     for (INNewsListModel *model in modelArr) {
         NSString *cellHeight;
-        CGFloat titleHeight;
-        CGFloat imgViewHeight;
+//        CGFloat titleHeight;
+//        CGFloat imgViewHeight;
         
         cellHeight = [NSString stringWithFormat:@"%f",PD_Fit(80)];
         [self.dataLayoutArr addObject:cellHeight];

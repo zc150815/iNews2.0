@@ -63,6 +63,12 @@
     
     return [self.dataLayoutArr[indexPath.row] floatValue];
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.dataArr removeAllObjects];
+    [self.dataLayoutArr removeAllObjects];
+    [tableView tableViewLoadNoDataWithImage:[UIImage imageNamed:@"icon_myfavorites"] Title:@"No favorite story"];
+    
+}
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -527,8 +533,8 @@
     
     for (INNewsListModel *model in modelArr) {
         NSString *cellHeight;
-        CGFloat titleHeight;
-        CGFloat imgViewHeight;
+//        CGFloat titleHeight;
+//        CGFloat imgViewHeight;
         
         cellHeight = [NSString stringWithFormat:@"%f",PD_Fit(100)];
         [self.dataLayoutArr addObject:cellHeight];

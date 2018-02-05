@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "AppDelegate+INAppSetting.h"
 #import "INTabBarController.h"
-
+#import "LaunchScreenController.h"
 @interface AppDelegate ()
 
 @end
@@ -20,12 +20,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[INTabBarController alloc]init];
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.rootViewController = [[INTabBarController alloc]init];
+//    [self.window makeKeyAndVisible];
     
-    [self setStatusBarBackgroundColor:[UIColor whiteColor]];
-    [self checkNewVersionApp];
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [[LaunchScreenController alloc]init];
+    [self.window makeKeyAndVisible];
+
+    
     
     return YES;
 }

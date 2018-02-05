@@ -16,6 +16,8 @@
 -(void)tableViewLoadNoDataWithImage:(UIImage*)image Title:(NSString*)title{
 
     self.bounces = NO;
+    [self reloadData];
+    self.contentInset = UIEdgeInsetsZero;
     
     UIButton *noDataBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     noDataBtn.frame = self.bounds;
@@ -33,11 +35,7 @@
     self.backgroundView = noDataBtn;
     
 }
--(void)tableViewLoadNoData{
-    [self reloadData];
-    self.contentInset = UIEdgeInsetsZero;
-    [self tableViewLoadNoDataWithImage:[UIImage imageNamed:@"network"] Title:@"网络错误,点击重试"];
-}
+
 -(void)reloadDataBtnClick{
     
     self.backgroundView = nil;

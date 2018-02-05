@@ -14,7 +14,7 @@
 
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,assign) BOOL isEditing;
-@property (nonatomic,strong) NSArray *dataArr;
+@property (nonatomic,strong) NSMutableArray *dataArr;
 @end
 
 @implementation INNewsChannelController
@@ -64,6 +64,9 @@
     self.collectionView = collectionView;
     [self.view addSubview:collectionView];
     
+    
+
+    
 }
 
 -(void)loadData{
@@ -87,7 +90,9 @@
                        @{@"channel":@"Fashion"},
                        @{@"channel":@"Auto"},]
                      ];
-    self.dataArr = [INNewsListModel mj_objectArrayWithKeyValuesArray:array];
+    NSArray *arrayM = [INNewsListModel mj_objectArrayWithKeyValuesArray:array];
+    [self.dataArr addObjectsFromArray:arrayM];
+    
     [self manipulationDataWithDataArr:self.dataArr];
     
 }
@@ -124,7 +129,15 @@
     NSArray *arrayM = [INNewsListModel mj_objectArrayWithKeyValuesArray:self.dataArr[indexPath.section]];
     cell.delegate = self;
     cell.model = arrayM[indexPath.item];
-//    cell.backgroundColor = PD_RandomColor;
+
+    
+    if (_isEditing) {
+        UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
+        [collectionView addGestureRecognizer:longPress];
+    }
+
+    
+    
     return cell;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -133,8 +146,16 @@
 //    NSArray *arrayM = [INNewsListModel mj_objectArrayWithKeyValuesArray:self.dataArr[indexPath.section]];
 //    INNewsListModel *model = arrayM[indexPath.item];
     if (indexPath.section>0) {
-        [[INPublicTools sharedPublicTools]showMessage:[NSString stringWithFormat:@"增加第%ld组第%ld个",indexPath.section,indexPath.item] duration:3];
+//        [[INPublicTools sharedPublicTools]showMessage:[NSString stringWithFormat:@"增加第%ld组第%ld个",indexPath.section,indexPath.item] duration:3];
+        //记录要移动的数据
+        id object= self.dataArr[indexPath.section][indexPath.item];
+        //删除要移动的数据
+        [self.dataArr[indexPath.section] removeObjectAtIndex:indexPath.item];
+        //添加新的数据到指定的位置
+        [self.dataArr[0] addObject:object];
+        [self manipulationDataWithDataArr:self.dataArr];
     }
+    
 }
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
@@ -173,15 +194,48 @@
     detailLab.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
     [headerView addSubview:detailLab];
 
-    return headerView;
+    return [self.dataArr[indexPath.section] count]?headerView:nil;
     
     
 }
+
+- (NSIndexPath *)collectionView:(UICollectionView *)collectionView targetIndexPathForMoveFromItemAtIndexPath:(NSIndexPath *)originalIndexPath toProposedIndexPath:(NSIndexPath *)proposedIndexPath {
+    /* 两个indexpath参数, 分别代表源位置, 和将要移动的目的位置*/
+    //-1 是为了不让最后一个可以交换位置
+    if (proposedIndexPath.section == 0 && proposedIndexPath.item == 0) {
+        //初始位置
+        return originalIndexPath;
+    } else {
+        //-1 是为了不让最后一个可以交换位置
+        if (originalIndexPath.section == 0 && originalIndexPath.item == 0) {
+            return originalIndexPath;
+        }
+        //      移动后的位置
+        return proposedIndexPath;
+    }
+}
+-(void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    //记录要移动的数据
+    id object= self.dataArr[sourceIndexPath.section][sourceIndexPath.item];
+    //删除要移动的数据
+    [self.dataArr[sourceIndexPath.section] removeObjectAtIndex:sourceIndexPath.item];
+    //添加新的数据到指定的位置
+    [self.dataArr[sourceIndexPath.section] insertObject:object atIndex:destinationIndexPath.item];
+}
+
 #pragma mark - INNewsChannelCellDelegate
 -(void)removeChannelWithINNewsChannelCell:(INNewsChannelCell *)cell{
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
     
-    [[INPublicTools sharedPublicTools]showMessage:[NSString stringWithFormat:@"增加第%ld组第%ld个",indexPath.section,indexPath.item] duration:3];
+    //记录要移动的数据
+    id object= self.dataArr[indexPath.section][indexPath.item];
+    //删除要移动的数据
+    [self.dataArr[indexPath.section] removeObjectAtIndex:indexPath.item];
+    //添加新的数据到指定的位置
+    [self.dataArr[1] addObject:object];
+    
+    [self manipulationDataWithDataArr:self.dataArr];
 }
 
 #pragma mark - 按钮点击事件
@@ -198,10 +252,48 @@
     }
     [self manipulationDataWithDataArr:self.dataArr];
 }
+- (void)longPress:(UIGestureRecognizer *)longPress {
+    //获取点击在collectionView的坐标
+    CGPoint point=[longPress locationInView:self.collectionView];
+    //从长按开始
+    if (longPress.state == UIGestureRecognizerStateBegan) {
+        
+        NSIndexPath *indexPath=[self.collectionView indexPathForItemAtPoint:point];
+        if (@available(iOS 9.0, *)) {
+            [self.collectionView beginInteractiveMovementForItemAtIndexPath:indexPath];
+        } else {
+            // Fallback on earlier versions
+        }
+        //长按手势状态改变
+    } else if(longPress.state==UIGestureRecognizerStateChanged) {
+        if (@available(iOS 9.0, *)) {
+            [self.collectionView updateInteractiveMovementTargetPosition:point];
+        } else {
+            // Fallback on earlier versions
+        }
+        //长按手势结束
+    } else if (longPress.state==UIGestureRecognizerStateEnded) {
+        
+        if (@available(iOS 9.0, *)) {
+            [self.collectionView endInteractiveMovement];
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        //其他情况
+    } else {
+        if (@available(iOS 9.0, *)) {
+            [self.collectionView cancelInteractiveMovement];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    
+}
 
--(NSArray *)dataArr{
+-(NSMutableArray *)dataArr{
     if (!_dataArr) {
-        _dataArr = [NSArray array];
+        _dataArr = [NSMutableArray array];
     }
     return _dataArr;
 }

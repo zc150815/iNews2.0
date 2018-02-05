@@ -22,7 +22,25 @@
     });
     return instanceType;
 }
-
+#pragma mark
+#pragma mark 封装get/post请求
+-(void)requestWithRequestType:(RequestType)type url:(NSString*)url params:(NSDictionary*)params callBack:(callBack)callBack {
+    if (type == GET) {
+        //        [[SQPublicTools sharedPublicTools] setupCookie];
+        [[INNetworkingTools sharedNetWorkingTools] GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            callBack(responseObject,nil);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            callBack(nil,error);
+        }];
+    }else{
+        //        [[SQPublicTools sharedPublicTools] setupCookie];
+        [[INNetworkingTools sharedNetWorkingTools] POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            callBack(responseObject,nil);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            callBack(nil,error);
+        }];
+    }
+}
 
 //fir检查更新
 -(void)checkFIRVersionWithCallBack:(callBack)callBack{
@@ -36,5 +54,12 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         callBack(nil,error);
     }];
+}
+
+//获取新闻详情
+-(void)getNewsDetailDataWithID:(NSString*)ID callBack:(callBack)callBack{
+    NSString*url = @"api/article/news_detail";
+    NSDictionary *params = @{@"id":ID};
+    [self requestWithRequestType:GET url:url params:params callBack:callBack];
 }
 @end

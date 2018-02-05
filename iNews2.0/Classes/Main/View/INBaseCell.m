@@ -20,7 +20,7 @@
         line.backgroundColor = [UIColor getColor:COLOR_BORDER_BASE];
         [self.contentView addSubview:line];
         [line mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.trailing.top.equalTo(self.contentView);
+            make.leading.trailing.bottom.equalTo(self.contentView);
             make.height.mas_equalTo(0.5);
         }];
         
